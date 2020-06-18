@@ -17,7 +17,7 @@ This step allows you to manage traffic of a Google Cloud Run service.
 * [cloudrun.png](/cloudrun.png) - Google Cloud Run logo
 
 # How it works
-This step runs on the xMatters agent on a Google Cloud Compute instance and uses the gcloud command line tools. If an invalid revision is requested it will fail after a two minute timeout. If this is not enough, it can be adjusted in the step code.
+This step runs on the xMatters agent on a Google Cloud Compute instance and uses the gcloud command line tools.
 
 
 # Installation
@@ -25,17 +25,20 @@ This step runs on the xMatters agent on a Google Cloud Compute instance and uses
 ## Google Cloud Run Setup
 In order for xMatters to properly authenticate with Google Cloud Run, the xMatters agent needs to be running somewhere that it can run gcloud commands. We've found that a compute instance with full Cloud API access scopes (currently there are no specific settings for Cloud Run access) is suitable for this. We would recommend using a service account on this compute instance that has the minimal access to services.
 
-Also a Cloud Run service is required for this step to be effective.
+Also, a Cloud Run service is required for this step to be effective.
 
 ## xMatters Setup
 1. Download the [CloudRunSteps.zip](CloudRunSteps.zip) file onto your local computer
 2. Navigate to the Workflows tab of your xMatters instance
 3. Click Import, and select the zip file you just downloaded
-4. Select the agent for the **Cloud Run - Manage Traffic** step to run on.
+4. In the **Cloud Run - Manage Traffic** step select the agent to run on.
 
 
 ## Usage
-The **Cloud Run - Manage Traffic** step is now available in your custom steps. So navigate to the appropriate canvas so you can add the step there. If you'd like to experiment with it, the **Manage Traffic** workflow has a canvas that can be triggered via HTTP call. 
+The **Cloud Run - Manage Traffic** step is now available in your custom steps. So navigate to the appropriate canvas so you can add the step there. If you'd like to experiment with it, the **Manage Traffic** workflow has a canvas that can be triggered via HTTP call.
+
+If an invalid revision is requested it will fail after a two minute timeout. If this is not enough, it can be adjusted in the step code.
+
 
 ### Inputs
 | Name  | Required? | Min | Max | Help Text | Default Value | Multiline |
