@@ -17,7 +17,7 @@ This step allows you to manage traffic of a Google Cloud Run service.
 * [cloudrun.png](/cloudrun.png) - Google Cloud Run logo
 
 # How it works
-This step runs on the xMatters agent on a Google Cloud Compute instance and uses the gcloud command line tools.
+This step runs on the xMatters agent on a Google Cloud Compute instance and uses the gcloud command line tools. If an invalid revision is requested it will fail after a two minute timeout. If this is not enough, it can be adjusted in the step code.
 
 
 # Installation
@@ -41,7 +41,7 @@ The **Cloud Run - Manage Traffic** step is now available in your custom steps. S
 | Name  | Required? | Min | Max | Help Text | Default Value | Multiline |
 | ----- | ----------| --- | --- | --------- | ------------- | --------- |
 | Service Name | Yes | 0 | 2000 | Name of service to manage traffic. | | No |
-| Revision Name | Yes | 0 | 2000 | Revision to move traffic to. By default, will move traffic to previous revision. | | No |
+| Revision Name | No | 0 | 2000 | Revision to move traffic to. By default, will move traffic to previous revision. | | No |
 | Region | Yes | 0 | 2000 | Region where your service is located. Options can be found [here](https://cloud.google.com/run/docs/locations). | | No |
 
 
@@ -50,6 +50,7 @@ The **Cloud Run - Manage Traffic** step is now available in your custom steps. S
 | Name | Description |
 | ---- | ----------  |
 | json | Raw json output from changing traffic. |
+| success | (true) or (false) depending on if traffic redirection succeeded. |
 
 
 ## Example
